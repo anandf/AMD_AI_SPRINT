@@ -1,0 +1,26 @@
+apiVersion: v1
+data:
+  policy.csv: |
+    g, system:cluster-admins, role:admin
+    g, cluster-admins, role:admin
+    g, mcp-user, role:admin
+  policy.default: ""
+  scopes: '[groups]'
+kind: ConfigMap
+metadata:
+  creationTimestamp: "2025-07-30T07:19:00Z"
+  labels:
+    app.kubernetes.io/managed-by: openshift-gitops
+    app.kubernetes.io/name: argocd-rbac-cm
+    app.kubernetes.io/part-of: argocd
+  name: argocd-rbac-cm
+  namespace: openshift-gitops
+  ownerReferences:
+  - apiVersion: argoproj.io/v1beta1
+    blockOwnerDeletion: true
+    controller: true
+    kind: ArgoCD
+    name: openshift-gitops
+    uid: e8fb0077-618f-43db-b741-4ecac2587108
+  resourceVersion: "65977"
+  uid: 44396712-5fca-4b46-8cf9-9c20dc3c05da
